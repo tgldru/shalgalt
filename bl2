@@ -1,0 +1,64 @@
+CREATE table customer 
+(   
+	customer_id serial not NULL PRIMARY KEY,
+	Fname varchar(50),
+	Lname varchar(50),
+	Address varchar(150),
+	Phone int,
+	Email varchar(50)
+)
+
+
+  	// many to one 
+
+FOREIGN key (customer_id) REFERENCES customer(customer_id)
+
+
+  	// one to one 
+
+CONSTRAINT fk_orderHeader FOREIGN key (orderHEader_id) REFERENCES orderHEader(orderHEader_id)
+
+
+	// insert
+
+insert into customer VALUES (DEFAULT, 'bat1', 'bat2' , '1245', 6999999, '69@gmail.com'),
+ (DEFAULT, 'bat2', 'bat3' , '1264', 666666, '666@gmail.com')
+
+
+	//SELECT
+
+SELECT * from orderHEader
+
+	//delete 
+DELETE TABLE customer WHERE customer_id = 1;
+
+
+
+
+
+
+
+
+
+
+
+
+1. npm init -y
+2. npm i express -D prisma typescript ts-node @types/express nodemon
+
+3. tsconfig.json  =>
+ {
+  "compilerOptions": {                                /* Set the JavaScript language version for emitted JavaScript and include compatible library declarations. */
+    "lib": ["ESNext"],                     /* Only output d.ts files and not JavaScript files. */
+    "sourceMap": true,                                /* Create source map files for emitted JavaScript files. */
+    "outDir": "dist",             /* Allow 'import x from y' when a module doesn't have a default export. */
+    "esModuleInterop": true,
+    "strict": true                             /* Skip type checking all .d.ts files. */
+  }
+}
+captain
+
+3. npx prisma init --datasource-provider postgresql
+4. prismad model vvsgeed  =>
+    npx prisma migrate dev --name init
+
